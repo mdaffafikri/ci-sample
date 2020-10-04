@@ -12,9 +12,11 @@ class Hello extends BaseController
         return view('hello', $arr);        
 	}
 
-	public function showname($name = "bro")
+	public function showname($name = "John doe")
 	{
-		echo view('templates/header');
+		$data['title'] = "This is showname";
+
+		echo view('templates/header', $data);
 		echo $name;
 		echo view('templates/footer');
 	}

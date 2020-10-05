@@ -13,6 +13,7 @@
     <nav class="navbar navbar-expand navbar-light bg-light">
         <div class="nav navbar-nav">
             <a class="nav-item nav-link <?php if($title=="Home"){echo "active";}?> "href="/pages">Home <span class="sr-only">(current)</span></a>
+            <a class="nav-item nav-link <?php if($title=="About"){echo "active";}?>" href="comic">Comic</a>
             <a class="nav-item nav-link <?php if($title=="About"){echo "active";}?>" href="/pages/about">About</a>
         </div>
     </nav>

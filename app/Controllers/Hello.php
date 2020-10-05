@@ -12,12 +12,12 @@ class Hello extends BaseController
         return view('hello', $arr);        
 	}
 
-	public function showname($name = "John doe")
+	public function showname($name = '', $number = 0)
 	{
 		$data['title'] = "This is showname";
 
 		echo view('templates/header', $data);
-		echo $name;
+		echo "$this->globalVar, Hai $name, $number ";
 		echo view('templates/footer');
 	}
 

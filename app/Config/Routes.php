@@ -36,6 +36,8 @@ $routes->get('/', 'Home::index');
 $routes->get('/hello', 'Hello::index');
 $routes->get('/showname/(:any)/(:num)', 'Hello::showname/$1/$2');
 
+$routes->get('/admin', 'Admin/AdminController::index');
+
 /**
  * --------------------------------------------------------------------
  * Additional Routing

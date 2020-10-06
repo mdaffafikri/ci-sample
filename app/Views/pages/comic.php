@@ -12,11 +12,13 @@
             </tr>
         </thead>
         <tbody>
+            <?php foreach($comic as $record): ?>
             <tr>
-            <th scope="row">1</th>
-            <td>Mark</td>
-            <td>Otto</td>
+            <th scope="row"><?= $record['id'] ?></th>
+            <td><?= $record['title'] ?></td>
+            <td><?= $record['author'] ?></td>
             </tr>
+            <?php endforeach; ?>
         </tbody>
     </table>
 </div>

@@ -34,6 +34,13 @@ $routes->setAutoRoute(true);
 // route since we don't have to scan directories.
 $routes->get('/', 'Home::index');
 
+$routes->get('/pages/comic', 'Comic::index');
+$routes->get('/pages/comic/detail/(:segment)', 'Comic::detail/$1');
+$routes->get('/pages/comic/add', 'Comic::add');
+$routes->post('/pages/comic/save', 'Comic::save');
+
+$routes->get('/comic', function(){echo "not found";});
+
 // $routes->get('/showname/(:any)/(:num)', 'Hello::showname/$1/$2');
 // $routes->get('/admin', 'Admin/AdminController::index');
 

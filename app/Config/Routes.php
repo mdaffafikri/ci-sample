@@ -36,10 +36,24 @@ $routes->get('/', 'Home::index');
 
 $routes->get('/pages/comic', 'Comic::index');
 $routes->get('/pages/comic/detail/(:segment)', 'Comic::detail/$1');
+
 $routes->get('/pages/comic/add', 'Comic::add');
 $routes->post('/pages/comic/save', 'Comic::save');
 
+//delete
+// $routes->get('/pages/comic/delete/(:segment)', 'Comic::delete/$1');
+$routes->delete('/pages/comic/delete/(:num)', 'Comic:delete/$1');
+
+//update
+$routes->get('/pages/comic/edit/(:segment)', 'Comic::edit/$1');
+$routes->post('/pages/comic/update/(:num)', 'Comic::update/$1');
+
+
+
 $routes->get('/comic', function(){echo "not found";});
+
+//login
+$routes->get('/pages/login','Pages::login'); 
 
 // $routes->get('/showname/(:any)/(:num)', 'Hello::showname/$1/$2');
 // $routes->get('/admin', 'Admin/AdminController::index');

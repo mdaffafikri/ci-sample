@@ -14,4 +14,15 @@ class ComicModel extends Model{
         }
         return $this->where(['slug'=>$comicSlug])->first();
     }
+
+    // public function getLogin($email, $pwd){
+    //     $user = $this->where(['title' => $email, 'author' => $pwd])
+    //     ->get()->getRowArray();     
+
+    //     if(!$user){
+    //         return array('title' => '', 'author' => '');
+    //     }else{
+    //         return $user;
+    //     }        
+    // }
 }

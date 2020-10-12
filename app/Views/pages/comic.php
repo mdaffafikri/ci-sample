@@ -18,33 +18,51 @@
     <?php endif; ?>
 
     <script>
-        $(".alert").alert();
+        // $(".alert").alert();
     </script>
 
-    <table class="table">
-        <thead>
-            <tr>
-                <th scope="col">#</th>
-                <th scope="col">Title</th>
-                <th scope="col">Author</th>
-            </tr>
-        </thead>
-        <tbody>
-            <?php foreach ($comic as $record) : ?>
+    <div class="table-area">
+        <table class="table">
+            <thead>
                 <tr>
-                    <th scope="row"> <?= $record['id'] ?> </th>
-
-                    <td>
-                        <a href="comic/detail/<?= $record['slug'] ?>">
-                            <?= $record['title'] ?>
-                        </a>
-                    </td>
-
-                    <td><?= $record['author'] ?></td>
+                    <th scope="col">#</th>
+                    <th scope="col">Title</th>
+                    <th scope="col">Author</th>
+                    <th scope="col">Act</th>
                 </tr>
-            <?php endforeach; ?>
-        </tbody>
-    </table>
+            </thead>
+            <tbody>
+                <?php
+                $number = 1;
+                foreach ($comic as $record) :
+                ?>
+                    <tr>
+                        <th scope="row"> <?= $number ?> </th>
+
+                        <td>
+                            <a href="comic/detail/<?= $record['slug'] ?>">
+                                <?= $record['title'] ?>
+                            </a>
+                        </td>
+
+                        <td><?= $record['author'] ?></td>
+
+                        <td>
+                            <a href="comic/edit/<?= $record['slug'] ?>">Edit</a>
+                            <form action="/comic/delete/ <?= $record['id']; ?>" method="post" class="d-inline"> <?= csrf_field(); ?>
+                                <input type="hidden" name="_method" value="DELETE" />
+                                <button type="submit" class="btn text-danger pt-0">Delete</button>
+                            </form>
+                        </td>
+                    </tr>
+                <?php $number++;
+                endforeach;
+                ?>
+            </tbody>
+        </table>
+        <!-- table area limit -->
+    </div> 
+        <?= $pager->links('custompaginate', 'custom_pager'); ?>    
 </div>
 
 <?= $this->endSection(); ?>

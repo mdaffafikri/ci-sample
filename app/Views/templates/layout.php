@@ -17,7 +17,7 @@
 </head>
 
 <body>
-    <nav class="navbar navbar-expand navbar-light bg-light">
+    <nav class="navbar navbar-expand navbar-light bg-light justify-content-between">
         <div class="nav navbar-nav">
             <a class="nav-item nav-link <?php if ($title == "Home") {
                                             echo "active";
@@ -29,7 +29,33 @@
                                             echo "active";
                                         } ?>" href="/pages/about">About</a>
         </div>
+
+        <div>
+            Hello <?= session()->get('email'); ?>
+            <?php if (session()->has('email')) : ?>
+                <a href="/pages/logout">Logout</a>
+            <?php else : ?>
+                <a href="/pages/login">Login</a>
+            <?php endif; ?>
+        </div>
+
     </nav>
+
+    <?php if (session()->getFlashdata('login')) : ?>
+    <div class="alert alert-success" role="alert">
+      <h4 class="alert-heading"></h4>
+      <p><?= session()->getFlashdata('login') ?></p>
+      <p class="mb-0"></p>
+    </div>
+    <?php endif; ?>
+
+    <?php if (session()->getFlashdata('logout')) : ?>
+    <div class="alert alert-warning" role="alert">
+      <h4 class="alert-heading"></h4>
+      <p><?= session()->getFlashdata('logout') ?></p>
+      <p class="mb-0"></p>
+    </div>
+    <?php endif; ?>
 
     <?= $this->renderSection('content'); ?>
 </body>

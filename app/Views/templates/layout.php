@@ -30,9 +30,9 @@
                                         } ?>" href="/pages/about">About</a>
         </div>
 
-        <div>
-            Hello <?= session()->get('email'); ?>
+        <div>            
             <?php if (session()->has('email')) : ?>
+                Hello <?= session()->get('email'); ?>
                 <a href="/pages/logout">Logout</a>
             <?php else : ?>
                 <a href="/pages/login">Login</a>
